@@ -179,9 +179,9 @@ function drawSkeleton() {
         let torsoImage = torsos[0];
 
 
-        // if (pose.score > 0.80 ){
+        if (pose.score > 0.80 ){
          context.drawImage(torsoImage,rightShoulder.x /1.2,rightShoulder.y /1.2 ,(getDistance(leftShoulder , rightShoulder )*2),getDistance(leftShoulder,leftHip) *1.3 );
-       // }
+       }
      }
 
      function drawLimb(part1, part2, minPartConfidence, theImage, ctx) {
