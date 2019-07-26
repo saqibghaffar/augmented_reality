@@ -4,8 +4,8 @@ let options;
 let poses = [];
 
 function setup() {
-  let videoWidth = window.innerWidth/2.8;
-  let videoHeight = window.innerWidth/2.8;
+  let videoWidth = window.innerWidth/1.03;
+  let videoHeight = window.innerWidth/2.1;
   const canvas = createCanvas(videoWidth, videoHeight);
   canvas.parent('videoContainer');
 
