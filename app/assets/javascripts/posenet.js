@@ -4,14 +4,14 @@ let options;
 let poses = [];
 
 function setup() {
-  let videoWidth = window.innerWidth/2.8;
-  let videoHeight = window.innerWidth/2.8;
+  let videoWidth = window.innerWidth;
+  let videoHeight = window.innerWidth;
   const canvas = createCanvas(videoWidth, videoHeight);
   canvas.parent('videoContainer');
-
   // Video capture
   video = createCapture(VIDEO);
   video.size(width, height);
+console.log("1 =" +videoWidth + " " +   videoHeight  + "2 =" + width +" "+ height)
 
 
   var posenetoptions = {
