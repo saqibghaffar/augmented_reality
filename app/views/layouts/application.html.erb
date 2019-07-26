@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AugmentedReality</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application' %>
+    <%= javascript_include_tag 'application' %>
+    
+  <style type="text/css">
+    body{
+      text-align: center;
+    }
+  </style>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
