@@ -4,8 +4,8 @@ let options;
 let poses = [];
 
 function setup() {
-  let videoWidth = window.innerWidth/1.03;
-  let videoHeight = window.innerWidth/2.1;
+  let videoWidth = window.innerWidth/2.8;
+  let videoHeight = window.innerWidth/2.8;
   const canvas = createCanvas(videoWidth, videoHeight);
   canvas.parent('videoContainer');
 
@@ -179,9 +179,9 @@ function drawSkeleton() {
         let torsoImage = torsos[0];
 
 
-        if (pose.score > 0.80 ){
+        // if (pose.score > 0.80 ){
          context.drawImage(torsoImage,rightShoulder.x /1.2,rightShoulder.y /1.2 ,(getDistance(leftShoulder , rightShoulder )*2),getDistance(leftShoulder,leftHip) *1.3 );
-       }
+       // }
      }
 
      function drawLimb(part1, part2, minPartConfidence, theImage, ctx) {
@@ -190,7 +190,7 @@ function drawSkeleton() {
 
 
 
-       if (poses[0].pose.score > 10.1 && poses[0].pose.score > minPartConfidence) {
+       if (poses[0].pose.score > minPartConfidence && poses[0].pose.score > minPartConfidence) {
 
          let img = theImage;
          let c = getDistance(pos1, pos2);
