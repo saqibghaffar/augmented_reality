@@ -3,35 +3,40 @@ let bodypix;
 let options;
 let poses = [];
 
-var z ;
-
-var y ; 
 
 function setup() {
-  let videoWidth = window.innerWidth;
-  let videoHeight = window.innerWidth;
-  const canvas = createCanvas(1100, 576);
+ let videoWidth = window.innerWidth/2.8;
+  let videoHeight = window.innerWidth/2.8;
+    const canvas = createCanvas(1100,576);
   canvas.parent('videoContainer');
-  video = createCapture(VIDEO,WEBGL);
-  video.loop(10)
+  // video.loop(10)
+  video = createCapture(VIDEO);
   video.size(width, height);
-  var posenetoptions = {
-    imageScaleFactor: 0.3,
-    outputStride: 16,
-    flipHorizontal: false,
-    minPoseConfidence: 0.25,
-    minPartConfidence: 0.5,
-    maxPoseDetections: 1, 
-    scoreThreshold: 0.5,
-    nmsRadius: 20,
-    detectionType: 'single',
-    multiplier: 0.75,
+  var posenetoptions = { 
+   imageScaleFactor: 0.3,
+ outputStride: 16,
+ flipHorizontal: false,
+ minConfidence: 0.5,
+ maxPoseDetections: 5,
+ scoreThreshold: 0.5,
+ nmsRadius: 20,
+ detectionType: 'single',
+ multiplier: 0.75,
   };
+  // poseNet = ml5.poseNet(video, posenetoptions, 'single', modelReady);
+
+  // Create a new poseNet method with a single detection
   poseNet = ml5.poseNet(video, posenetoptions, modelReady);
+  // This sets up an event that fills the global variable "poses"
+  // with an array every time new poses are detected
   poseNet.on('pose', function(results) {
     poses = results;
   });
+
+  // Hide the video element, and just show the canvas
   video.hide();
+
+  console.log("sssssssssssssss" + poses)
 }
 
 function draw() {
@@ -160,16 +165,16 @@ function drawSkeleton() {
     if( $("#torso-position-x").val() == 0  ){
 
       var z  = rightShoulder.x /1.2 ;
-$("#torso-position-x").val(z)
+      $("#torso-position-x").val(z)
     }
     
     if ($("#torso-position-y").val() == 0 ){
-       var y = rightShoulder.y /1.2 ;
-       $("#torso-position-y").val(y) 
-    }
-    console.log( y +"else " + $("#torso-position").val())
-    context.drawImage(torsoImage,$("#torso-position-x").val(), $("#torso-position-y").val()  ,$("#torso-width").val(),$("#torso-height").val() );
-    
+     var y = rightShoulder.y /1.2 ;
+     $("#torso-position-y").val(y) 
+   }
+   console.log( y +"else " + $("#torso-position").val())
+   context.drawImage(torsoImage,$("#torso-position-x").val(), $("#torso-position-y").val()  ,$("#torso-width").val(),$("#torso-height").val() );
+
   // }
 }
 }
