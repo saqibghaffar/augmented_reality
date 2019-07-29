@@ -148,7 +148,20 @@ function drawSkeleton() {
   var context = canvas.getContext("2d");
   drawLimb(rightHip,rightKnee,minPartConfidence,rightThighs[0],context);
 
+  input = $("#t-shirt")
+   if(input[0].files[0] ){
+    // alert("sxxx" + $("#t-shirt").val() )
+
+  var reader = new FileReader();
+  reader.onload = function (a) {
+        torso0 =  a.target.result
+ }
+ reader.readAsDataURL(input[0].files[0]);
+
+   } else {
   torso0 = 'assets/hiclipart.com-id_ilswg.png';
+
+   }
   let torsoPaths = [torso0];
   let torsos = [];
   torsoPaths.forEach((path) => {let img = new Image();img.src = path;torsos.push(img);});
@@ -172,7 +185,7 @@ function drawSkeleton() {
      var y = rightShoulder.y /1.2 ;
      $("#torso-position-y").val(y) 
    }
-   console.log( y +"else " + $("#torso-position").val())
+
    context.drawImage(torsoImage,$("#torso-position-x").val(), $("#torso-position-y").val()  ,$("#torso-width").val(),$("#torso-height").val() );
 
    }
