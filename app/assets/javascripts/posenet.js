@@ -154,7 +154,7 @@ function drawSkeleton() {
   torsoPaths.forEach((path) => {let img = new Image();img.src = path;torsos.push(img);});
   let torsoImage = torsos[0];
   var context = canvas.getContext("2d");
-  // if(pose.score > 0.30){
+   if(pose.score > 0.30){
 
     if($("#torso-width").val() == 0){
       $("#torso-width").val(getDistance(leftShoulder , rightShoulder )* 2)
@@ -175,7 +175,7 @@ function drawSkeleton() {
    console.log( y +"else " + $("#torso-position").val())
    context.drawImage(torsoImage,$("#torso-position-x").val(), $("#torso-position-y").val()  ,$("#torso-width").val(),$("#torso-height").val() );
 
-  // }
+   }
 }
 }
 
