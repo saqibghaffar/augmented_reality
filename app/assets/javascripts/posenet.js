@@ -7,7 +7,7 @@ let poses = [];
 function setup() {
  let videoWidth = window.innerWidth/2.8;
   let videoHeight = window.innerWidth/2.8;
-    const canvas = createCanvas(800,400);
+    const canvas = createCanvas(400,400);
   canvas.parent('videoContainer');
   // video.loop(10)
   video = createCapture(VIDEO);
