@@ -5,18 +5,18 @@
 }
 
 .slider {
-  -webkit-appearance: none;
-  /*width: 100%;*/
-         width: 828%;
-  height: 25px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-  /*transform-origin: 75px 75px;*/
-  transform-origin: 321px 290px;
-  transform: rotate(-90deg);
+     -webkit-appearance: none;
+    width: 100%;
+    width: 700%;
+    height: 27px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    /* transform-origin: 75px 75px; */
+      transform-origin: 264px 167px;
+    transform: rotate(-90deg);
 }
 
 .slider:hover {
@@ -53,31 +53,34 @@
   box-sizing: border-box;
 }
 
-.column {
- float: left;
- /*width: 80%;*/
- padding: 10px;
- height: 300px; /* Should be removed. Only for demonstration */
-}
-.left, .right {
-  width: 7%;
+/* Clear floats after the columns */
+
+.row {
+    width:80%;
+    text-align:center;
 }
 
-.middle {
-  width: 30%;
+.left {
+    float:left;
+    width:5%;
 }
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+
+.center {
+    display: inline-block;
+    margin:0 auto;
+    width:60%;
+}
+
+.right {
+    float:right;
+    width:5%;
 }
 .box{
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
+  /*flex-flow: row nowrap;*/
+ /* justify-content: center;
   align-content: center;
-  align-items:center;
+  align-items:center;*/
   border:1px solid #e3f2fd;
 }
 .item{
@@ -86,34 +89,36 @@
 }
 </style>
 
-<div class="row">
-  <input type="file" name="" id="t-shirt">
-  <div  class="column left" style="height: 744px;">
-    <div>
-    <p style="   ">Width</p>
-    <input type="range" min="0" max="3000" value="0" class="slider" id="torso-width">
+<div class="row" >
+ 
+  <div  class="column left" >
+  
+      <p style="    margin-left: 88px;">Width</p>
+      <input type="range" min="0" max="3000" value="0" class="slider" id="torso-width">
+    <!-- </div> -->
   </div>
-  </div>
-  <div class="column middle">
-    <div  class="" style="width: 300%;">
+  <div class="column center">
+    <div  class="" style="    width: 129%;">
       <div class="box">
-      <p  class="item">Left:</p><p  class="item">Position:</p><p  class="item">Right:</p>
+         <input type="file" name="" id="t-shirt">
+        <p  class="item">Left:</p><p  class="item">Position:</p><p  class="item">Right:</p>
       </div>
       <input type="range" min="-3000" max="3000" value="0" class="slider-1" id="torso-position-x">
     </div>
     
-      <div id="videoContainer"></div>
-    <div  class="" style="width: 300%;">
-     
-       <div class="box">
-      <p  class="item">Up:</p><p  class="item">Position:</p><p  class="item">Down:</p>
-      </div>
-      <input type="range" min="-3000" max="3000" value="0" class="slider-1" id="torso-position-y">
-    </div>
+    <div id="videoContainer"></div>
+    <div  class="" style="    width: 129%;">
+    <input type="range" min="-3000" max="3000" value="0" class="slider-1" id="torso-position-y">
 
- </div>
- <div  class="column right " style="float: right;height: 744px;">
-  <p style="">Height</p>
+     <div class="box">
+      <p  class="item">Up:</p><p  class="item">Position:</p><p  class="item">Down:</p>
+    </div>
+  </div>
+
+</div>
+
+<div  class="column right " >
+  <p style="    margin-left: 88px;">Height</p>
 
   <input type="range" min="0" max="3000" value="0" class="slider" id="torso-height">
 </div>
@@ -125,7 +130,9 @@
 .slider-1 {
   -webkit-appearance: none;
   width: 100%;
+      /*margin-left: 17%;*/
   height: 25px;
+  /*width: 82%;*/
   background: #d3d3d3;
   outline: none;
   opacity: 0.7;
